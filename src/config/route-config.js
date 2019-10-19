@@ -5,6 +5,8 @@ module.exports = {
     const userRoutes = require("../routes/users");
     const topicRoutes = require("../routes/topics");
     const commentRoutes = require("../routes/comments");
+    const voteRoutes = require("../routes/votes");
+
     if(process.env.NODE_ENV === "test") {
          const mockAuth = require("../../spec/support/mock-auth.js");
          mockAuth.fakeIt(app);
@@ -14,5 +16,6 @@ module.exports = {
     app.use(postRoutes);
     app.use(userRoutes);
     app.use(topicRoutes);
+    app.use(voteRoutes);
   }
 }
