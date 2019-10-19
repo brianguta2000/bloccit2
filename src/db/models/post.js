@@ -13,7 +13,7 @@ module.exports = (sequelize, DataTypes) => {
     topicId: {
       type: DataTypes.INTEGER,
       allowNull: false
-    
+
   },
 userId: {
   type: DataTypes.INTEGER,
@@ -30,6 +30,10 @@ userId: {
        foreignKey: "userId",
        onDelete: "CASCADE"
      });
+     Post.hasMany(models.Comment, {
+     foreignKey: "postId",
+     as: "comments"
+   });
   };
   return Post;
 };
